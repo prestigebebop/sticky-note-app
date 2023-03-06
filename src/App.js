@@ -4,9 +4,6 @@ import Footer from './Components/Footer.js';
 import NoteForm from './Components/NoteForm.js';
 import Note from './Components/Note.js';
 
-
-
-
 function App () {
   const [notesArray, setNotesArray] = React.useState([]);
 
