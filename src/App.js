@@ -7,7 +7,7 @@ import Note from './Components/Note.js';
 function App () {
   const [notesArray, setNotesArray] = React.useState([]);
 
-  function appendNote(fullNote){
+  const appendNote = (fullNote) => {
     setNotesArray(previousValues => {
         return [
             ...previousValues,
@@ -16,7 +16,7 @@ function App () {
     });
 };
 
-function deleteNote(id){
+const deleteNote = (id) => {
   setNotesArray(previousValues => {
     return previousValues.filter((noteObject, i) => {
       return i !== id;

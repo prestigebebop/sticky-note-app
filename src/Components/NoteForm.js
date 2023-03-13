@@ -11,10 +11,12 @@ function NoteForm({addNote}){
         noteTitle: '',
         noteContent: ''
       });
+
+    const {noteTitle, noteContent} = fullNote;
     
     const [areaIsExpanded, setExpandedArea] = React.useState(false);
 
-      function handleInputChange(event){
+      const handleInputChange = (event) => {
         const {name, value} = event.target;
         setFullNote(previousValues => {
             return {
@@ -24,21 +26,23 @@ function NoteForm({addNote}){
         });
     };
 
-    function submitNote(event){
+    const submitNote = (event) => {
         addNote(fullNote);
         setFullNote({noteTitle: '', noteContent: ''});
         event.preventDefault();
     };
 
-    function expandArea(){
+    const expandArea = () => {
         setExpandedArea(true);
     };
 
     return (
     <div>
         <form className='create-note'>
-            {areaIsExpanded ? <input onChange={handleInputChange} placeholder='Note Title' value={fullNote.noteTitle} name='noteTitle'></input> : null}
-            <textarea onChange={handleInputChange} onClick={expandArea} placeholder='Write a new note...' value={fullNote.noteContent} name='noteContent' rows={areaIsExpanded ? 3 : 1}></textarea>
+            {
+                areaIsExpanded ? <input onChange={handleInputChange} placeholder='Note Title' value={noteTitle} name='noteTitle'></input> : null
+            }
+            <textarea onChange={handleInputChange} onClick={expandArea} placeholder='Write a new note...' value={noteContent} name='noteContent' rows={areaIsExpanded ? 3 : 1}></textarea>
             <Zoom in={areaIsExpanded ? true : false}>
                 <Fab type='submit' onClick={submitNote}>
                     <AddCircleIcon />
