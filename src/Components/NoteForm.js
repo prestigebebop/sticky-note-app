@@ -18,12 +18,16 @@ function NoteForm({addNote}){
 
       const handleInputChange = (event) => {
         const {name, value} = event.target;
-        setFullNote(previousValues => {
-            return {
-                ...previousValues,
-                [name]: value
-            };
-        });
+        setFullNote({
+            ...fullNote,
+            [name]: value
+        })
+        // setFullNote(previousValues => {
+        //     return {
+        //         ...previousValues,
+        //         [name]: value
+        //     };
+        // });
     };
 
     const submitNote = (event) => {
