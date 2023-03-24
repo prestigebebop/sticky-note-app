@@ -17,8 +17,8 @@ function App () {
 };
 
 const deleteNote = (id) => {
-  setNotesArray(previousValues => {
-    return previousValues.filter((noteObject, i) => {
+  setNotesArray(notesArray => {
+    return notesArray.filter((noteObject, i) => {
       return i !== id;
     });
   });
